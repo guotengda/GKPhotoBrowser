@@ -561,7 +561,9 @@ static Class imageManagerClass = nil;
         photo.sourceImageView.alpha = 1.0;
     }
     
-    [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait animated:NO];
+    if (!self.isScreenRotateDisabled) { 
+        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait animated:NO];
+    }
     
     // 移除屏幕旋转监听
     [self delDeviceOrientationObserver];
